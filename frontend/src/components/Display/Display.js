@@ -5,6 +5,8 @@ import './display.scss';
 import axios from "axios";
 import '../../styles.css';
 
+axios.defaults.withCredentials = true;
+
 
 function Display({ token }) {
     console.log(token);
@@ -13,11 +15,13 @@ function Display({ token }) {
 
     useEffect(() => {
         let config = {
-            headers: {
+            withCredentials : true,
+            // headers: {
                 // Authorization: token,
-                username: localStorage.getItem('username'),
-                password: localStorage.getItem('password')
-            }
+                // username: localStorage.getItem('username'),
+                // password: localStorage.getItem('password')
+        
+            // }
         }
 
         axios.get('http://localhost:5000/api/users', config)

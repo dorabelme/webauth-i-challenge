@@ -28,8 +28,13 @@ const sessionConfig = {
     })
 };
 
+const corsConfig = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+}
+
 const server = express();
-server.use(cors());
+server.use(cors(corsConfig));
 server.use(session(sessionConfig));
 
 server.use(express.json());
