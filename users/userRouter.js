@@ -7,10 +7,10 @@ const router = express.Router();
 const restricted = require("../auth/restricted-middleware.js");
 
 
-
 router.get('/', restricted, (req, res) => {
     Users.find()
         .then(users => {
+            console.log(users);
             res.json(users);
         })
         .catch(err => res.send(err));
